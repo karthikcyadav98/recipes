@@ -1,6 +1,10 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyparser = require('body-parser');
+const router = express.Router();
+const path = require('path');
+
+const recipeApi = require('./api/recipeApi');
 
 const app = express();
 
@@ -16,6 +20,9 @@ mongoose
 	.connect(db)
 	.then(() => console.log('MongoDB Connected'))
 	.catch((err) => console.log('Connection Failure', err));
+
+//Use routes
+app.use('/api/recipes', recipeApi);
 
 //Server static assets if in production
 if (process.env.NODE_ENV === 'production') {
