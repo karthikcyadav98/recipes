@@ -43,7 +43,6 @@ router.post('/add', (req, res) => {
 // @desc    Delete a recipes
 // @access  public
 router.delete('/:id', (req, res) => {
-	console.log('kjakad', req.params.id);
 	Recipe.findOneAndDelete({ _id: req.params.id })
 		.then(() => {
 			res.json({ success: true });
