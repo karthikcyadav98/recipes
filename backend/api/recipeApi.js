@@ -6,30 +6,19 @@ const validateRecipesInput = require('../validation/recipeVal');
 
 const Recipe = require('../models/Recipes');
 
-//get all recipes
+// @route   GET api/recipes
+// @desc   	get all recipes
+// @access  public
 router.get('/', (req, res) => {
 	Recipe.find()
 		.sort({ date: -1 })
 		.then((recipes) => res.json(recipes))
 		.catch((err) => res.status(404).json({ norecipes: 'no recipes found' }));
 });
-// router.get('/all', (req, res) => {
-// 	const errors = [];
 
-// 	Recipe.find()
-// 		.then((recipes) => {
-// 			if (!recipes) {
-// 				errors.norecipes = 'There are no recipes';
-// 				res.stats(400).json(errors);
-// 			}
-// 			console.log('njhcskjhf', recipes);
-// 			// res.json(recipes);
-// 		})
-// 		.catch((err) => console.log('lkjlkj', err));
-// 	// .catch((err) => res.status(404).json(err));
-// });
-
-//add a recipe
+// @route   POST api/recipes/add
+// @desc    add a new recipe
+// @access  public
 router.post('/add', (req, res) => {
 	const { errors, isValid } = validateRecipesInput(req.body);
 
@@ -48,23 +37,18 @@ router.post('/add', (req, res) => {
 	});
 
 	newRecipe.save().then((recipe) => res.json(recipe)).catch((err) => console.log(err));
+});
 
-	// Recipe.findOne({ recipe: req.recipe.frecipecode }).then((recipe) => {
-	// 	if (recipe) {
-	// 		return res.status(400).json({ recipe: 'Recipe already exists' });
-	// 	} else {
-	// 		const newRecipe = new Recipe({
-	// 			frecipename: req.body.frecipename,
-	// 			frecipecode: req.body.frecipecode,
-	// 			imageUrl: req.body.imageUrl,
-	// 			category: req.body.category,
-	// 			fingredients: req.body.fingredients,
-	// 			fpreparation: req.body.fpreparation
-	// 		});
-
-	// 		newRecipe.save().then((recipe) => res.json(recipe)).catch((err) => console.log(err));
-	// 	}
-	// });
+// @route   DELETE api/recipes/:id
+// @desc    Delete a recipes
+// @access  public
+router.delete('/:id', (req, res) => {
+	console.log('kjakad', req.params.id);
+	Recipe.findOneAndDelete({ _id: req.params.id })
+		.then(() => {
+			res.json({ success: true });
+		})
+		.catch((err) => res.status(404).json({ recipenotfound: 'No recipe found' }));
 });
 
 module.exports = router;
