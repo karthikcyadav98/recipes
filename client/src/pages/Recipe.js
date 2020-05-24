@@ -1,22 +1,27 @@
 import React, { Component } from 'react';
-import { ScrollView } from 'react-native';
+import { ScrollView, View } from 'react-native';
 import { Card, Paragraph, Button, Appbar } from 'react-native-paper';
 import axios from 'axios';
-import ViewPrep from './viewPrep';
+import Loader from './Loader';
 
 class Recipe extends Component {
 	state = {
 		allRecipes: '',
-		data: ''
+		data: '',
+		loader: false
 	};
 
-	componentDidMount() {
-		axios
-			.get('http://10.0.2.2:5000/api/recipes')
+	async componentDidMount() {
+		this.setState({
+			loader: true
+		});
+		await axios
+			.get('https://mighty-plateau-02520.herokuapp.com/api/recipes')
 			.then(async (res) => {
 				await this.setState({
 					allRecipes: res.data
 				});
+				this.setState({ loader: false });
 			})
 			.catch((err) => console.log(err));
 	}
@@ -36,30 +41,40 @@ class Recipe extends Component {
 
 	render() {
 		return (
-			<ScrollView>
-				<Appbar.Header>
-					<Appbar.Content title="RECIPES" subtitle="All Recipes" />
-					<Appbar.Action icon="plus" onPress={this.handleAdd} />
-				</Appbar.Header>
-				{this.state.allRecipes != '' &&
-					this.state.allRecipes.map((item, index) => {
-						return (
-							<Card key={index}>
-								<Card.Cover source={{ uri: item.imageUrl }} />
-								<Card.Title title={item.frecipename} subtitle={item.frecipecode} />
-								<Card.Content>
-									<Paragraph>{item.fingredients}</Paragraph>
-									<Card.Actions>
-										<Button onPress={() => this.handlePrep(item._id)}>View Preparation</Button>
-									</Card.Actions>
-									{/* <Card.Actions>
+			<View>
+				{this.state.loader ? (
+					<Loader />
+				) : (
+					<View>
+						<Appbar.Header>
+							<Appbar.Content title="RECIPES" subtitle="All Recipes" />
+							<Appbar.Action icon="plus" onPress={this.handleAdd} />
+						</Appbar.Header>
+						<ScrollView>
+							{this.state.allRecipes != '' &&
+								this.state.allRecipes.map((item, index) => {
+									return (
+										<Card key={index}>
+											<Card.Cover source={{ uri: item.imageUrl }} />
+											<Card.Title title={item.frecipename} subtitle={item.frecipecode} />
+											<Card.Content>
+												<Paragraph>{item.fingredients}</Paragraph>
+												<Card.Actions>
+													<Button onPress={() => this.handlePrep(item._id)}>
+														View Preparation
+													</Button>
+												</Card.Actions>
+												{/* <Card.Actions>
 										<Button onPress={() => this.handlePrep(item._id)}>Delete</Button>
 									</Card.Actions> */}
-								</Card.Content>
-							</Card>
-						);
-					})}
-			</ScrollView>
+											</Card.Content>
+										</Card>
+									);
+								})}
+						</ScrollView>
+					</View>
+				)}
+			</View>
 		);
 	}
 }

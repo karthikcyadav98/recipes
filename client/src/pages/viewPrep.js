@@ -1,17 +1,21 @@
 import React, { Component } from 'react';
 import { ScrollView } from 'react-native';
 import { Appbar, Card, Paragraph } from 'react-native-paper';
+import Loader from './Loader';
 
 class ViewPrep extends Component {
 	state = {
 		allRecipes: '',
-		data: ''
+		data: '',
+		loader: false
 	};
 
 	componentDidMount() {
+		this.setState({ loader: true });
 		this.setState({
 			data: this.props.route.params.item
 		});
+		this.setState({ loader: false });
 	}
 
 	handleBack = () => {
@@ -20,8 +24,10 @@ class ViewPrep extends Component {
 
 	render() {
 		console.log('ajkgd', this.props.route.params.item);
-		return (
-			<ScrollView>
+		return this.state.loader ? (
+			<Loader />
+		) : (
+			<View>
 				<Appbar.Header stle={{ position: 'fixed' }}>
 					<Appbar.BackAction onPress={this.handleBack} />
 					<Appbar.Content
@@ -29,17 +35,19 @@ class ViewPrep extends Component {
 						subtitle={this.props.route.params.item.frecipecode}
 					/>
 				</Appbar.Header>
-				<Card key={this.props.route.params.item._id}>
-					<Card.Cover source={{ uri: this.props.route.params.item.imageUrl }} />
-					<Card.Title
-						title={this.props.route.params.item.frecipename}
-						subtitle={this.props.route.params.item.frecipecode}
-					/>
-					<Card.Content>
-						<Paragraph>{this.props.route.params.item.fpreparation}</Paragraph>
-					</Card.Content>
-				</Card>
-			</ScrollView>
+				<ScrollView>
+					<Card key={this.props.route.params.item._id}>
+						<Card.Cover source={{ uri: this.props.route.params.item.imageUrl }} />
+						<Card.Title
+							title={this.props.route.params.item.frecipename}
+							subtitle={this.props.route.params.item.frecipecode}
+						/>
+						<Card.Content>
+							<Paragraph>{this.props.route.params.item.fpreparation}</Paragraph>
+						</Card.Content>
+					</Card>
+				</ScrollView>
+			</View>
 		);
 	}
 }
