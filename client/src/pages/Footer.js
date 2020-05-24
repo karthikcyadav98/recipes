@@ -3,7 +3,7 @@ import { BottomNavigation, Text } from 'react-native-paper';
 import Recipe from './Recipe';
 import AddRecipe from './AddRecipe';
 
-class Dashboard extends React.Component {
+class Footer extends React.Component {
 	state = {
 		index: 0,
 		routes: [
@@ -21,6 +21,7 @@ class Dashboard extends React.Component {
 
 	render() {
 		return (
+			// <Text>kahd</Text>
 			<BottomNavigation
 				navigationState={this.state}
 				onIndexChange={this.handleIndexChange}
@@ -30,4 +31,4 @@ class Dashboard extends React.Component {
 	}
 }
 
-export default Dashboard;
+export default Footer;

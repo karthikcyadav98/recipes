@@ -2,22 +2,46 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import React from 'react';
 
-import Dashboard from './src/pages/Dashboard';
+import Recipe from './src/pages/Recipe';
+import ViewPrep from './src/pages/viewPrep';
+import AddItem from './src/pages/AddItem';
 
 const Stack = createStackNavigator();
 NavBar = (props) => {
 	return (
 		<NavigationContainer>
 			<Stack.Navigator>
-				{/* Dashboard */}
+				{/* Recipe */}
 				<Stack.Screen
-					name="Dashboard"
+					name="Recipe"
 					options={{
-						title: 'Dashboard',
+						title: 'Recipe',
 						headerShown: false
 					}}
 				>
-					{(props) => <Dashboard {...props} />}
+					{(props) => <Recipe {...props} />}
+				</Stack.Screen>
+
+				{/* View Prepration */}
+				<Stack.Screen
+					name="ViewPrep"
+					options={{
+						title: 'ViewPrep',
+						headerShown: false
+					}}
+				>
+					{(props) => <ViewPrep {...props} />}
+				</Stack.Screen>
+
+				{/* Add Item*/}
+				<Stack.Screen
+					name="AddItem"
+					options={{
+						title: 'AddItem',
+						headerShown: false
+					}}
+				>
+					{(props) => <AddItem {...props} />}
 				</Stack.Screen>
 			</Stack.Navigator>
 		</NavigationContainer>
