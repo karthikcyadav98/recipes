@@ -1,8 +1,8 @@
 platform :ios, '9.0'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
-target 'Connect' do
-  # Pods for Connect
+target 'Recipe' do
+  # Pods for Recipe
   pod 'FBLazyVector', :path => "../node_modules/react-native/Libraries/FBLazyVector"
   pod 'FBReactNativeSpec', :path => "../node_modules/react-native/Libraries/FBReactNativeSpec"
   pod 'RCTRequired', :path => "../node_modules/react-native/Libraries/RCTRequired"
@@ -38,7 +38,7 @@ target 'Connect' do
 
   pod 'RNCAsyncStorage', :path => '../node_modules/@react-native-community/async-storage'
 
-  target 'ConnectTests' do
+  target 'RecipeTests' do
     inherit! :search_paths
     # Pods for testing
   end
@@ -46,10 +46,10 @@ target 'Connect' do
   use_native_modules!
 end
 
-target 'Connect-tvOS' do
-  # Pods for Connect-tvOS
+target 'Recipe-tvOS' do
+  # Pods for Recipe-tvOS
 
-  target 'Connect-tvOSTests' do
+  target 'Recipe-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
   end

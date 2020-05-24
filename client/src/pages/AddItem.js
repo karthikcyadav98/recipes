@@ -43,7 +43,7 @@ export class AddItem extends Component {
 
 	render() {
 		return (
-			<View>
+			<ScrollView>
 				{this.state.loader ? (
 					<Loader />
 				) : (
@@ -123,7 +123,7 @@ export class AddItem extends Component {
 						</Dialog.Actions>
 					</Dialog>
 				</Portal>
-			</View>
+			</ScrollView>
 		);
 	}
 }

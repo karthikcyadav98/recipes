@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ScrollView } from 'react-native';
+import { ScrollView, View } from 'react-native';
 import { Appbar, Card, Paragraph } from 'react-native-paper';
 import Loader from './Loader';
 
@@ -27,7 +27,7 @@ class ViewPrep extends Component {
 		return this.state.loader ? (
 			<Loader />
 		) : (
-			<View>
+			<ScrollView>
 				<Appbar.Header stle={{ position: 'fixed' }}>
 					<Appbar.BackAction onPress={this.handleBack} />
 					<Appbar.Content
@@ -47,7 +47,7 @@ class ViewPrep extends Component {
 						</Card.Content>
 					</Card>
 				</ScrollView>
-			</View>
+			</ScrollView>
 		);
 	}
 }

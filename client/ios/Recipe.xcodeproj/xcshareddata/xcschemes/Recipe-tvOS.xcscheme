@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-               BuildableName = "Connect-tvOS.app"
-               BlueprintName = "Connect-tvOS"
-               ReferencedContainer = "container:Connect.xcodeproj">
+               BuildableName = "Recipe-tvOS.app"
+               BlueprintName = "Recipe-tvOS"
+               ReferencedContainer = "container:Recipe.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E48F1E0B4A5D006451C7"
-               BuildableName = "Connect-tvOSTests.xctest"
-               BlueprintName = "Connect-tvOSTests"
-               ReferencedContainer = "container:Connect.xcodeproj">
+               BuildableName = "Recipe-tvOSTests.xctest"
+               BlueprintName = "Recipe-tvOSTests"
+               ReferencedContainer = "container:Recipe.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -61,9 +61,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E48F1E0B4A5D006451C7"
-               BuildableName = "Connect-tvOSTests.xctest"
-               BlueprintName = "Connect-tvOSTests"
-               ReferencedContainer = "container:Connect.xcodeproj">
+               BuildableName = "Recipe-tvOSTests.xctest"
+               BlueprintName = "Recipe-tvOSTests"
+               ReferencedContainer = "container:Recipe.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -71,9 +71,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "Connect-tvOS.app"
-            BlueprintName = "Connect-tvOS"
-            ReferencedContainer = "container:Connect.xcodeproj">
+            BuildableName = "Recipe-tvOS.app"
+            BlueprintName = "Recipe-tvOS"
+            ReferencedContainer = "container:Recipe.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -94,9 +94,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "Connect-tvOS.app"
-            BlueprintName = "Connect-tvOS"
-            ReferencedContainer = "container:Connect.xcodeproj">
+            BuildableName = "Recipe-tvOS.app"
+            BlueprintName = "Recipe-tvOS"
+            ReferencedContainer = "container:Recipe.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -113,9 +113,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "Connect-tvOS.app"
-            BlueprintName = "Connect-tvOS"
-            ReferencedContainer = "container:Connect.xcodeproj">
+            BuildableName = "Recipe-tvOS.app"
+            BlueprintName = "Recipe-tvOS"
+            ReferencedContainer = "container:Recipe.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

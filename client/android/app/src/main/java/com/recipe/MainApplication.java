@@ -1,4 +1,4 @@
-package com.connect;
+package com.recipe;
 
 import android.app.Application;
 import android.content.Context;

@@ -41,40 +41,38 @@ class Recipe extends Component {
 
 	render() {
 		return (
-			<View>
+			<ScrollView>
+				<Appbar.Header>
+					<Appbar.Content title="RECIPES" subtitle="All Recipes" />
+					<Appbar.Action icon="plus" onPress={this.handleAdd} />
+				</Appbar.Header>
 				{this.state.loader ? (
 					<Loader />
 				) : (
-					<View>
-						<Appbar.Header>
-							<Appbar.Content title="RECIPES" subtitle="All Recipes" />
-							<Appbar.Action icon="plus" onPress={this.handleAdd} />
-						</Appbar.Header>
-						<ScrollView>
-							{this.state.allRecipes != '' &&
-								this.state.allRecipes.map((item, index) => {
-									return (
-										<Card key={index}>
-											<Card.Cover source={{ uri: item.imageUrl }} />
-											<Card.Title title={item.frecipename} subtitle={item.frecipecode} />
-											<Card.Content>
-												<Paragraph>{item.fingredients}</Paragraph>
-												<Card.Actions>
-													<Button onPress={() => this.handlePrep(item._id)}>
-														View Preparation
-													</Button>
-												</Card.Actions>
-												{/* <Card.Actions>
+					<ScrollView>
+						{this.state.allRecipes != '' &&
+							this.state.allRecipes.map((item, index) => {
+								return (
+									<Card key={index}>
+										<Card.Cover source={{ uri: item.imageUrl }} />
+										<Card.Title title={item.frecipename} subtitle={item.frecipecode} />
+										<Card.Content>
+											<Paragraph>{item.fingredients}</Paragraph>
+											<Card.Actions>
+												<Button onPress={() => this.handlePrep(item._id)}>
+													View Preparation
+												</Button>
+											</Card.Actions>
+											{/* <Card.Actions>
 										<Button onPress={() => this.handlePrep(item._id)}>Delete</Button>
 									</Card.Actions> */}
-											</Card.Content>
-										</Card>
-									);
-								})}
-						</ScrollView>
-					</View>
+										</Card.Content>
+									</Card>
+								);
+							})}
+					</ScrollView>
 				)}
-			</View>
+			</ScrollView>
 		);
 	}
 }

@@ -20,4 +20,4 @@ export default function Main() {
   );
 }
 
-AppRegistry.registerComponent('Connect', () => Main);
+AppRegistry.registerComponent('Recipe', () => Main);
